@@ -25,7 +25,7 @@ public class CardService : ICardService
         await _context.SaveChangesAsync();
 
         Priority priority = await _context.Priorities.FindAsync(card.PriorityId) 
-            ?? throw new Exception($"The object '{typeof(Card)}' with id '{card.PriorityId}' was not found.");
+            ?? throw new Exception($"The object '{typeof(Priority)}' with id '{card.PriorityId}' was not found.");
 
         card.Priority = priority;
 
