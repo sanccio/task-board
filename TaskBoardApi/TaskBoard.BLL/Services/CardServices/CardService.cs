@@ -34,7 +34,7 @@ public class CardService : ICardService
 
     public async Task<bool> DeleteCard(int id)
     {
-        var сard = _context.Cards.Find(id);
+        var сard = await _context.Cards.FindAsync(id);
 
         if (сard is null)
         {

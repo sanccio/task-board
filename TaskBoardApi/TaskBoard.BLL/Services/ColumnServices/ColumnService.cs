@@ -29,7 +29,7 @@ public class ColumnService : IColumnService
 
     public async Task<bool> DeleteColumn(int id)
     {
-        var column = _context.Columns.Find(id);
+        var column = await _context.Columns.FindAsync(id);
 
         if (column is null) 
         {
