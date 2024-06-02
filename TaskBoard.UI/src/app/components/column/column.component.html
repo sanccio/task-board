@@ -1,0 +1,45 @@
+<div class="task-column">
+  @if (!isEditFormVisible) {
+
+  <div class="column-header">
+    <p>{{ column.name }}</p>
+    <span class="task-count">{{ column.cards?.length }}</span>
+
+    <app-three-dots-menu
+      bsMenuPosition="dropdown-menu-end"
+      [itemId]="column.id!"
+      (editOptionSelected)="onEditOptionSelected()"
+      (deleteOptionSelected)="onDeleteOptionSelected($event)"
+    ></app-three-dots-menu>
+  </div>
+
+  <app-card-modal
+    [modalId]="'create_card_' + column.id!"
+    [column]="column"
+    (formSubmitted)="onCreateCardFormSubmitted($event)"
+  ></app-card-modal>
+
+  <button
+    class="tb-btn add-card-btn"
+    data-bs-toggle="modal"
+    [attr.data-bs-target]="'#' + 'create_card_' + column.id"
+    (click)="onInputFocused(column.id!)"
+  >
+    <span class="material-icons"> add </span>Add new card
+  </button>
+
+  } @else {
+  <app-column-form
+    [inputText]="column.name"
+    submitButtonText="Save"
+    (submitted)="onEditFormSubmitted($event)"
+    (canceled)="onEditFormCanceled()"
+  ></app-column-form>
+  }
+
+  <section class="results">
+    @for (card of column.cards; track card.id) {
+    <app-card [card]="card" [columnName]="column.name" (cardsUpdated)="onCardsUpdated()"></app-card>
+    }
+  </section>
+</div>

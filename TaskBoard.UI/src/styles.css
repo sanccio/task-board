@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @font-face {
+    font-family: "Open Sans", sans-serif;
+    src: url('./assets/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf');
+  } */
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0 20px 0;
+    box-sizing: border-box;
+}
+
+/* .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bold;
+} */
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+h4 { 
+    display: block;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.material-icons,
+.material-icons-outlined {
+    user-select: none;
+}
+
+.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+}
+
+.tb-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+
+    width: 115px;
+    height: 38px;
+    border: 1.5px solid #e3e9f0;
+    border-radius: 4.2px;
+}

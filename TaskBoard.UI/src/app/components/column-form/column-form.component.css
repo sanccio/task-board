@@ -1,0 +1,71 @@
+.add-list-form {
+    width: 240px; 
+    margin-bottom: 12px;
+}
+
+.add-list-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.add-list-form input {
+    min-height: 44px;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-radius: 4.2px;
+    background-color: #f3f4f6;
+    border: solid 2px #e1e3e9;
+    font-size: 13px;
+    font-weight: 600;
+    width: -webkit-fill-available;
+}
+
+.add-list-form input::placeholder {
+    color: black;
+}
+
+.add-list-form input:focus {
+    outline-color: lightslategray;
+}
+
+.button-group {
+    display: flex;
+}
+
+.button-group__add-btn, 
+.button-group__cancel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 4.2px;
+    width: /* 115px */ 47%;
+    height: 44px;
+}
+
+.button-group__add-btn {
+    color: white;
+    background-color: #5e647f;
+    border: 1.5px solid #e3e9f0;
+    margin-right: auto;
+}
+
+.button-group__cancel-btn {
+    background-color: white;
+    border: 1.5px solid #e3e9f0;
+}
+
+.button-group__add-btn:hover {
+    background-color: #575C75;
+}
+
+.button-group__cancel-btn:hover {
+    background-color: #f6f6f6;
+    border-color: #dae0e7;
+}

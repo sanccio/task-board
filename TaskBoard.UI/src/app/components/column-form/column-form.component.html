@@ -1,0 +1,15 @@
+<div class="add-list-form">
+  <input
+    type="text"
+    [(ngModel)]="inputText"
+    placeholder="Enter list title..."
+  />
+  <div class="button-group">
+    <button class="button-group__add-btn" (click)="onSubmit()">
+      {{ submitButtonText }}
+    </button>
+    <button class="button-group__cancel-btn" (click)="onCancel()">
+      Cancel
+    </button>
+  </div>
+</div>

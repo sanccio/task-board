@@ -1,0 +1,39 @@
+<main class="main">
+  <section class="task-board-header">
+    <h1>My Task Board</h1>
+    <button class="history-btn">
+      <span class="material-icons"> history </span>History
+    </button>
+  </section>
+
+  <div class="content">
+    <section class="results">
+      <ng-container *ngIf="columnList$ | async as columnList">
+        <app-column
+          *ngFor="let column of columnList"
+          [column]="column"
+          (columnsUpdated)="onColumnsUpdated()"
+        ></app-column>
+
+        @if (columnList.length < 4 && !isFormVisible) {
+        <div class="task-column">
+          <div class="column-header">
+            <p>Add another list</p>
+            <button class="add-list-btn" (click)="onAddColumnClicked()">
+              <span class="material-icons"> add </span>
+            </button>
+          </div>
+        </div>
+        } @else if (isFormVisible && columnList.length < 4) {
+        <app-column-form
+          submitButtonText="Add list"
+          (submitted)="onColumnCreateFormSubmitted($event)"
+          (canceled)="onColumnCreateFormCanceled()"
+        ></app-column-form>
+        }
+      </ng-container>
+    </section>
+  </div>
+</main>
+
+<router-outlet />

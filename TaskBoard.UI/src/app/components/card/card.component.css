@@ -1,0 +1,100 @@
+.task-card {
+    padding: 18px 13px;
+    border: 2px solid #d4d7dd;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.card-header h4 {
+    /* margin-top: 19px; */
+    margin-top: 0;
+    /* margin-bottom: 12px; */
+    margin-bottom: 0;
+}
+
+.card-description {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.task-card p {
+    color: #6f748c;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.date span {
+    font-size: 20px;
+}
+
+.date p {
+    /* font-weight:600; */
+    margin-bottom: 0; /* reset bootstrap */
+    margin-left: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #616782;
+}
+
+.priority {
+    background-color: #f3f4f6;
+    width: fit-content;
+    border-radius: 15px;
+}
+
+.priority p {
+    /* padding: 5px 11px 5px 11px; */
+    padding: 3px 11px 3px 11px; /* when bootstrap is applied */
+    color: #757a92;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.priority::before {
+
+}
+
+.app-dropdown-button .dropdown-toggle {
+    min-width: 500px !important;
+}
+
+app-dropdown-button {
+    --custom-width: 100%;
+    --margin-top: 0;
+    --margin-bottom: 0;
+}
+
+
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.dropdown-item span {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    /* font-size: 22px; */
+}
+
+.edit-option span {
+    color: #646983;
+}
+
+.delete-option {
+    color: #ff0f0f;
+}

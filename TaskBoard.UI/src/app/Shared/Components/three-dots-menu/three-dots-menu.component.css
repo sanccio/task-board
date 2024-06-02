@@ -1,0 +1,24 @@
+.tb-btn {
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    padding: 0
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.dropdown-item span {
+    margin-right: 5px;
+}
+
+.edit-option span {
+    color: #646983;
+}
+
+.delete-option {
+    color: #ff0f0f;
+}

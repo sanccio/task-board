@@ -1,0 +1,64 @@
+<div class="task-card">
+  <div class="card-header">
+    <h4>{{ card.title }}</h4>
+
+    <div class="dropdown">
+      <app-card-modal
+        [modalId]="'edit_card_' + card.id!"
+        [card]="card"
+        [isEditMode]="true"
+        (formSubmitted)="onEditFormSubmitted($event)"
+        [columnName]="columnName"
+      ></app-card-modal> <!-- really need columnName here? -->
+      <button
+        class="tb-btn"
+        style="
+          width: fit-content;
+          height: fit-content;
+          border: none;
+          padding: 0;
+        "
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <span class="material-icons three-dot-icon"> more_vert </span>
+      </button>
+      <ul class="dropdown-menu">
+        <a
+          class="dropdown-item edit-option"
+          href="#"
+          data-bs-toggle="modal"
+          [attr.data-bs-target]="'#' + 'edit_card_' + card.id"
+        >
+          <span class="material-icons-outlined"> edit </span>
+          Edit
+        </a>
+        <a
+          class="dropdown-item delete-option"
+          href="#"
+          (click)="onDeleteOptionSelected()"
+          ><span class="material-icons-outlined"> delete </span>Delete</a
+        >
+      </ul>
+    </div>
+  </div>
+
+  <p class="card-description">
+    {{ card.description }}
+  </p>
+
+  <div class="date">
+    <span class="material-icons-outlined"> calendar_today </span>
+    <p>{{ card.dueDate | date : "EEE, dd MMM" }}</p>
+  </div>
+
+  <div class="priority">
+    <p>{{ card.priority?.name }}</p>
+  </div>
+
+  <app-dropdown-button
+    [config]="dropdownConfig"
+    (selectedValueChanged)="onSelectedValueChanged($event)"
+  ></app-dropdown-button>
+</div>

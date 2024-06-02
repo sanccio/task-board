@@ -1,0 +1,89 @@
+<div class="modal" [id]="modalId" tabindex="-1"> <!-- column?.id removed -->
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" data-bs-theme="dark">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form
+        #cardform="ngForm"
+        (ngSubmit)="onFormSubmitted()"
+        autocomplete="off"
+      >
+        <div class="modal-body">
+          <input
+            type="text"
+            class="card-name-input"
+            id="input_{{ modalId }}"
+            tabindex="-1"
+            placeholder="Write card name..."
+            [(ngModel)]="cardName"
+            name="cardName"
+          />
+          <div class="modal-elements">
+            <span class="material-icons-outlined"> format_list_bulleted </span>
+            <label>List</label>
+            <app-dropdown-button
+              [config]="listDropdownConfig"
+              (selectedValueChanged)="onColumnChanged($event)"
+            ></app-dropdown-button>
+          </div>
+
+          <div class="modal-elements">
+            <span class="material-icons-outlined"> calendar_today </span>
+            <label>Due Date</label>
+            <input
+              type="date"
+              class="datepicker"
+              [(ngModel)]="dueDate"
+              name="dueDate"
+              id=""
+            />
+          </div>
+
+          <div class="modal-elements">
+            <span class="material-icons-outlined"> sell </span>
+            <label>Priority</label>
+            <app-dropdown-button
+              [config]="priorityDropdownConfig"
+              (selectedValueChanged)="onPriorityChanged($event)"
+            ></app-dropdown-button>
+          </div>
+
+          <label class="description-label">Description</label>
+          <textarea
+            class="form-control"
+            name="description"
+            [(ngModel)]="cardDescription"
+            placeholder="Write some information..."
+            rows="3"
+          ></textarea>
+          <!-- <div class="mb-3">
+              <h4 for="message-text" class="col-form-label">Message:</h4>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div> -->
+        </div>
+        <div class="modal-footer">
+          <input
+            type="submit"
+            class="tb-btn save-btn"
+            value="Save"
+            data-bs-dismiss="modal"
+            name="save"
+          />
+          <button
+            type="button"
+            class="tb-btn cancel-btn"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

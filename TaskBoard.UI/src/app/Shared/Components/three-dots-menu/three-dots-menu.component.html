@@ -1,0 +1,28 @@
+<div class="dropdown">
+  <button
+    class="tb-btn"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <span class="material-icons"> more_vert </span>
+  </button>
+  <ul class="dropdown-menu {{ bsMenuPosition }}">
+    <a
+      class="dropdown-item edit-option"
+      href="#"
+      (click)="onEditSelected(itemId)"
+    >
+      <span class="material-icons-outlined"> edit </span>
+      Edit
+    </a>
+    <a
+      class="dropdown-item delete-option"
+      href="#"
+      (click)="onDeleteSelected(itemId)"
+    >
+      <span class="material-icons-outlined"> delete </span>
+      Delete
+    </a>
+  </ul>
+</div>

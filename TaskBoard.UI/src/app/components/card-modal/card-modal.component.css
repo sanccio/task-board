@@ -1,0 +1,121 @@
+/* Modal dialog */
+
+/* .modal {
+    --bs-modal-border-radius: 15px;
+  } */
+
+.modal-header {
+    background-color: #5e647f;
+    color: white;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 20px 30px 30px 30px;
+}
+
+.modal-elements {
+    display: flex;
+    align-items: center;
+  }
+
+  .modal-body {
+    padding: 5px 30px 4px 30px;
+  }
+
+  .modal-elements {
+    min-height: 45px;
+  }
+
+  .modal-elements label {
+    margin-bottom: 0;
+    min-width: 130px;
+    max-width: 130px;
+    color: #6f758e;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .modal-elements span {
+    margin-right: 18px;
+    color: #6f758e;
+    font-size: 20px;
+  }
+
+  .description-label {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 0 10px 0;
+    margin-top: 14px;
+  }
+
+  /* .modal-title {
+    margin-bottom: 5px;
+  } */
+
+  .card-name-input {
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: solid black 1px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-weight: bold;
+  }
+
+  .card-name-input::placeholder {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .card-name-input:focus {
+    outline: none;
+    font-weight: bold;
+    margin-bottom: 21px;
+    border-bottom: transparent;
+  }
+
+.save-btn, .cancel-btn {
+    min-width: 48.5%;
+    height: 38px;
+}
+
+.save-btn {
+    background-color: #5e647f;
+    color: white;
+    margin-right: auto;
+}
+
+.datepicker {
+    color: #000000;
+    font-size: 0.875rem;
+    height: 33px;
+    border-radius: 0.25rem;
+    border: none;
+    padding: 0px 16px;
+    /* background-color: #e1e3e9; */
+    font-weight: bold;
+
+    background: #e1e3e9 url("../../../assets/keyboard_arrow_down_24dp_FILL0_wght400_GRAD0_opsz24.svg");
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 93%;
+    width: 153px;
+}
+
+.datepicker:focus {
+  outline: 2px solid #c2dbfe;
+}
+
+.datepicker::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+.datepicker::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
+}
+
+/* .datepicker::-webkit-datetime-edit-text {
+  background-color: red;
+} */
+

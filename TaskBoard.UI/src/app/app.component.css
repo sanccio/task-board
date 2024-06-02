@@ -1,0 +1,102 @@
+.results {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 13px;
+}
+
+.task-board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.history-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bold;
+
+    width: 115px;
+    height: 44px;
+    border: 1.5px solid #e3e9f0;
+    border-radius: 4.2px;
+}
+
+.history-btn .material-icons {
+    margin-right: 8px;
+}
+
+/* add list form */
+
+.add-list-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.add-list-form input {
+    min-height: 44px;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-radius: 4.2px;
+    background-color: #f3f4f6;
+    border: solid 2px #e1e3e9;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.add-list-form input::placeholder {
+    color: black;
+}
+
+.add-list-form input:focus {
+    outline-color: lightslategray;
+}
+
+.button-group__add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+
+    width: 115px;
+    height: 44px;
+    border: 1.5px solid #e3e9f0;
+    border-radius: 4.2px;
+
+    background-color: #5e647f;
+    color: white;
+}
+
+.button-group__add-btn:hover {
+    background-color: #575C75;
+}
+
+.button-group__cancel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bold;
+
+    width: 115px;
+    height: 44px;
+    border: 1.5px solid #e3e9f0;
+    border-radius: 4.2px;
+}
+
+.button-group__cancel-btn:hover {
+    background-color: #f6f6f6;
+    border-color: #dae0e7;
+}
