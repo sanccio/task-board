@@ -37,12 +37,7 @@ public class ColumnsController(IColumnService columnService) : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteColumn(int id)
     {
-        bool isDeleted = await _columnService.DeleteColumn(id);
-
-        if (!isDeleted)
-        {
-            return NotFound();
-        }
+        await _columnService.DeleteColumn(id);
 
         return NoContent();
     }

@@ -29,12 +29,7 @@ public class CardsController(ICardService cardService) : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteСard(int id)
     {
-        bool isDeleted = await _cardService.DeleteCard(id);
-
-        if (!isDeleted)
-        {
-            return NotFound();
-        }
+        await _cardService.DeleteCard(id);
 
         return NoContent();
     }

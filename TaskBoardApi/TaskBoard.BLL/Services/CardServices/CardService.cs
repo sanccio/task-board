@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using TaskBoard.BLL.DTOs.Card;
+using TaskBoard.BLL.Exceptions;
 using TaskBoard.DAL;
 using TaskBoard.DAL.Entities;
 
@@ -25,26 +26,20 @@ public class CardService : ICardService
         await _context.SaveChangesAsync();
 
         Priority priority = await _context.Priorities.FindAsync(card.PriorityId) 
-            ?? throw new Exception($"The object '{typeof(Priority)}' with id '{card.PriorityId}' was not found.");
+            ?? throw new ObjectNotFoundException(nameof(Priority), card.PriorityId);
 
         card.Priority = priority;
 
         return _mapper.Map<Card, CardDto>(card);
     }
 
-    public async Task<bool> DeleteCard(int id)
+    public async Task DeleteCard(int id)
     {
-        var сard = await _context.Cards.FindAsync(id);
+        Card? card = await _context.Cards.FindAsync(id)
+            ?? throw new ObjectNotFoundException(nameof(Card), id);
 
-        if (сard is null)
-        {
-            return false;
-        }
-
-        _context.Remove(сard);
+        _context.Remove(card);
         await _context.SaveChangesAsync();
-
-        return true;
     }
 
     public async Task EditCard(int id, UpdateCardDto updateCardDto)
@@ -60,7 +55,7 @@ public class CardService : ICardService
         Card? сard = await _context.Cards
             .Include(c => c.Priority)
             .FirstOrDefaultAsync(c => c.Id == id)
-            ?? throw new Exception($"The object '{typeof(Card)}' with id '{id}' was not found.");
+            ?? throw new ObjectNotFoundException(nameof(Card), id);
 
         return _mapper.Map<Card, CardDto>(сard);
     }

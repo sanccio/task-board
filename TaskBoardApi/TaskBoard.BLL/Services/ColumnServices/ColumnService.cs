@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using TaskBoard.BLL.DTOs.Column;
+using TaskBoard.BLL.Exceptions;
 using TaskBoard.DAL;
 using TaskBoard.DAL.Entities;
 
@@ -27,19 +28,13 @@ public class ColumnService : IColumnService
         return _mapper.Map<Column, ColumnDto>(column);
     }
 
-    public async Task<bool> DeleteColumn(int id)
+    public async Task DeleteColumn(int id)
     {
-        var column = await _context.Columns.FindAsync(id);
-
-        if (column is null) 
-        {
-            return false; 
-        }
+        Column? column = await _context.Columns.FindAsync(id)
+            ?? throw new ObjectNotFoundException(nameof(Column), id);
 
         _context.Remove(column);
         await _context.SaveChangesAsync();
-
-        return true;
     }
 
     public async Task EditColumn(int id, UpdateColumnDto updateColumnDto)
@@ -66,7 +61,7 @@ public class ColumnService : IColumnService
             .Include(c => c.Cards)
             .ThenInclude(c => c.Priority)
             .FirstOrDefaultAsync(c => c.Id == id) 
-            ?? throw new Exception($"The object '{typeof(Column)}' with id '{id}' was not found.");
+            ?? throw new ObjectNotFoundException(nameof(Column), id);
 
         return _mapper.Map<Column, ColumnDto>(column);
     }

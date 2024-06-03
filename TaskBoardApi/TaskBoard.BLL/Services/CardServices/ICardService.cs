@@ -7,5 +7,5 @@ public interface ICardService
     Task<CardDto> GetCardById(int id);
     Task<CardDto> CreateCard(CreateCardDto createCardDto);
     Task EditCard(int id, UpdateCardDto updateCardDto);
-    Task<bool> DeleteCard(int id);
+    Task DeleteCard(int id);
 }

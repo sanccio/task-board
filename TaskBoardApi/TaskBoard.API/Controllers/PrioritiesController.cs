@@ -5,14 +5,9 @@ using TaskBoard.BLL.Services.PriorityServices;
 namespace TaskBoard.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class PrioritiesController : ControllerBase
+public class PrioritiesController(IPriorityService priorityService) : ControllerBase
 {
-    readonly private IPriorityService _priorityService;
-
-    public PrioritiesController(IPriorityService priorityService)
-    {
-        _priorityService = priorityService;
-    }
+    readonly private IPriorityService _priorityService = priorityService;
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<PriorityDto>>> GetPriorities()
