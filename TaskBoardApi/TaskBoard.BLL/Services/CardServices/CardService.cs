@@ -44,9 +44,12 @@ public class CardService : ICardService
 
     public async Task EditCard(int id, UpdateCardDto updateCardDto)
     {
-        Card сard = _mapper.Map<UpdateCardDto, Card>(updateCardDto);
+        Card? card = await _context.Cards.FindAsync(id)
+            ?? throw new ObjectNotFoundException(nameof(Card), id);
 
-        _context.Cards.Update(сard);
+        _mapper.Map(updateCardDto, card);
+
+        _context.Cards.Update(card);
         await _context.SaveChangesAsync();
     }
 

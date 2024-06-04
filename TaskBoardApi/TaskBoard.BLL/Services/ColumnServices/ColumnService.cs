@@ -39,7 +39,10 @@ public class ColumnService : IColumnService
 
     public async Task EditColumn(int id, UpdateColumnDto updateColumnDto)
     {
-        var column = _mapper.Map<UpdateColumnDto, Column>(updateColumnDto);
+        Column? column = await _context.Columns.FindAsync(id)
+            ?? throw new ObjectNotFoundException(nameof(Column), id);
+
+        _mapper.Map(updateColumnDto, column);
 
         _context.Columns.Update(column);
         await _context.SaveChangesAsync();
